@@ -12,13 +12,13 @@ function App() {
 let  arrayDeNavBar =["home","contacto","peliculas"]
   return (
     <>
-      {/* <NavBar nombre ={"agustin"} apellido={"casas"} arrayDeLinks={arrayDeNavBar} greeting={"hola mundo"}  />
-      <Carrito/>
+        <NavBar nombre ={"agustin"} apellido={"casas"} arrayDeLinks={arrayDeNavBar} greeting={"hola mundo"}  />
+        <Carrito/>
+  <ListaDeProductos/>
+        
 
-      
-<Clase/> 
-<Clase2/> */}
-<ListaDeProductos/>
+{/* <Clase2/> */}
+{/* <Complemetaria/> */}
     </>
 
   );

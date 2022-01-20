@@ -17,7 +17,7 @@ if(nuevaSuma < tope){ setCantidad(nuevaSuma + 1)}
 
 function restar (){
     let nuevaResta = cantidad
-    if(nuevaResta > 0){ setCantidad(nuevaResta - 1)};
+    if(nuevaResta > 1){ setCantidad(nuevaResta - 1)};
     
 }
 
