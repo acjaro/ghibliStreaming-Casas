@@ -1,7 +1,9 @@
 import React from "react";
-import MasMenos from "./MasMenos";
-export default function Producto({item}){
+import Contador from "./Contador";
+import { Link } from 'react-router-dom';
 
+export default function Producto({item}){
+   
 function onAdd(){
 alert(item.nombre+ ' '+item.stock);
 
@@ -12,10 +14,13 @@ alert(item.nombre+ ' '+item.stock);
     return(
         <><p>PRODUCTO</p>
         <p>{item.nombre} </p>
+        <Link to={"/producto"+item.id}>ir al item {item.id}</Link>
         <p>stock:{item.stock} initial:{item.initial}</p>
         <div onClick={()=>onAdd()}>agregar al carrito</div>
         
-        <MasMenos tope={item.stock} initial={item.initial}  />
+        <Contador tope={item.stock} initial={item.initial}  />
+        
+        
         
         </>
     )
