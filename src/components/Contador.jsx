@@ -3,10 +3,12 @@ import { Button  } from 'react-bootstrap';
 
 
 
-export default function Contador({tope, initial}){
+export default function Contador({tope, initial, onAdd}){
 
 
 const [cantidad, setCantidad] = useState(initial);
+
+
 
 
     function sumar (){
@@ -26,6 +28,9 @@ function restar (){
 
     return(
         <>
+
+        <Button onClick={()=> onAdd(cantidad)}>agregar al carrito</Button>
+        <br/>
         <Button onClick={()=>restar()}>-</Button>
         {cantidad}
         <Button onClick={()=>sumar()}>+</Button>

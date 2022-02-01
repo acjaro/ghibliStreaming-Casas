@@ -6,10 +6,15 @@ import Carrito from './components/carrito';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from '@restart/ui/esm/Button';
+// import { contexto } from "./components/ContextDemo"
+// import ContextDemo from './components/contextdemo';
 
 function App() {
 let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/contacto"},{nombre:" carrito ", link: "/carrito"},,]
-  return (
+  
+// const { alertEspacial } = useContext(contexto);
+return (
     <>
         
  
@@ -18,7 +23,7 @@ let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/c
 
 {/* <Clase2/> */}
 {/* <Complemetaria/> */}
-    
+   {/* <ContextDemo></ContextDemo>  */}
 <BrowserRouter>
         <NavBar nombre ={"agustin"} apellido={"casas"} arrayDeLinks={arrayDeNavBar} greeting={"hola mundo"}  />
         <Switch>
@@ -26,6 +31,7 @@ let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/c
           
           {/* ruta home */}
           <Route exact path="/">
+            {/* <button onClick={()=>alertEspacial()}></button>  */}
             Hola soy la home <ItemListContainer/>  
                 <Carrito/>
           </Route>
@@ -47,6 +53,7 @@ let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/c
         
         </Switch>
       </BrowserRouter>
+    
     </>
 
   );
