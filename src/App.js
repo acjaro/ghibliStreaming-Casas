@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch,  Route } from "react-router-dom";
 import NavBar from './components/NavBar';
-import Carrito from './components/carrito';
+
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,7 +33,7 @@ return (
           <Route exact path="/">
             {/* <button onClick={()=>alertEspacial()}></button>  */}
             Hola soy la home <ItemListContainer/>  
-                <Carrito/>
+                
           </Route>
 
           {/* ruta contacto */}
