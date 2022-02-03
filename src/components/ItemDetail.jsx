@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import puma from "./puma.png"
 import adidas from "./adidas.png"
 import nike from "./nike.png"
 import Contador from "./Contador";
 import { Link } from "react-router-dom";
+import { cartcontext } from "./context/CartProvider";
 
 export default function ItemDetail({producto}){
+    const [addtocart]= useContext(cartcontext)
 
 const [mostrarContador, setMostarcontador]= useState(true);
 
@@ -14,6 +16,7 @@ const [mostrarContador, setMostarcontador]= useState(true);
     function onAdd(cantidad){
         alert(producto.nombre+ ' '+ cantidad);
         setMostarcontador(false)
+        addtocart(producto)
     }
     return(
         <>

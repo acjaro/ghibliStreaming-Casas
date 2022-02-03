@@ -2,13 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch,  Route } from "react-router-dom";
 import NavBar from './components/NavBar';
-
+import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '@restart/ui/esm/Button';
-// import { contexto } from "./components/ContextDemo"
-// import ContextDemo from './components/contextdemo';
+import CartProvider from './components/context/CartProvider';
+
+
+
+
+
 
 function App() {
 let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/contacto"},{nombre:" carrito ", link: "/carrito"},,]
@@ -16,14 +20,7 @@ let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/c
 // const { alertEspacial } = useContext(contexto);
 return (
     <>
-        
- 
- 
-        
-
-{/* <Clase2/> */}
-{/* <Complemetaria/> */}
-   {/* <ContextDemo></ContextDemo>  */}
+      <CartProvider>
 <BrowserRouter>
         <NavBar nombre ={"agustin"} apellido={"casas"} arrayDeLinks={arrayDeNavBar} greeting={"hola mundo"}  />
         <Switch>
@@ -43,6 +40,8 @@ return (
 
           {/* ruta carrito */}
           <Route exact path="/carrito">
+            <Cart/>
+            <br/>
             listo para comprar
           </Route>
 
@@ -53,7 +52,7 @@ return (
         
         </Switch>
       </BrowserRouter>
-    
+    </CartProvider>
     </>
 
   );
