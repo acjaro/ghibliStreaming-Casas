@@ -17,10 +17,10 @@ import CartProvider from './components/context/CartProvider';
 function App() {
 let  arrayDeNavBar =[{nombre:"home ", link: "/"},{nombre:" contacto ", link: "/contacto"},{nombre:" carrito ", link: "/carrito"},,]
   
-// const { alertEspacial } = useContext(contexto);
+
 return (
     <>
-      <CartProvider>
+       <CartProvider> 
 <BrowserRouter>
         <NavBar nombre ={"agustin"} apellido={"casas"} arrayDeLinks={arrayDeNavBar} greeting={"hola mundo"}  />
         <Switch>
@@ -52,7 +52,7 @@ return (
         
         </Switch>
       </BrowserRouter>
-    </CartProvider>
+     </CartProvider> 
     </>
 
   );

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { cartcontext } from "./context/CartProvider";
 
 export default function ItemDetail({producto}){
-    const [addtocart]= useContext(cartcontext)
+    const {addtocart}= useContext(cartcontext)
 
 const [mostrarContador, setMostarcontador]= useState(true);
 
@@ -16,7 +16,7 @@ const [mostrarContador, setMostarcontador]= useState(true);
     function onAdd(cantidad){
         alert(producto.nombre+ ' '+ cantidad);
         setMostarcontador(false)
-        addtocart(producto)
+        addtocart(producto, cantidad)
     }
     return(
         <>
