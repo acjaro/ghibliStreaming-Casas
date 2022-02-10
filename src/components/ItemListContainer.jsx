@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Producto from "./Producto";
-
-
+import { Link } from 'react-router-dom';
+import { getFirestore } from '../firebase/FireBase'
 export default function ItemListContainer(){
 
 
@@ -10,29 +10,36 @@ export default function ItemListContainer(){
     
 
 
+    const [items, setItems] = useState({});
     useEffect(() => {
-
-
-
-const promesaProd = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve([{nombre: 'nike', stock:5, initial:2, id:'001'},
-    {nombre: 'adidas', stock:7, initial:3, id:'002'}, 
-    {nombre: 'puma', stock:9, initial:5 , id:'003'}])
-    }, 2000)
-    })
-
-    promesaProd
-    .then((res) => {
-        console.log(res)
-        setArrayDeProductos(res)
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-
-}, [])
+  
+      const db = getFirestore();
+  
+      const itemCollection = db.collection("items")
+      //.where('category', '==', 'adidas');
+  
+      itemCollection.get()
+        .then((querySnapShot) => {
+  
+          if (querySnapShot.size == 0) {
+            console.log('no hay documentos con en ese query');
+            return
+          }
+  
+          console.log('hay documentos');
+  
+          //console.log(querySnapShot.docs);
+  
+          setItems(querySnapShot.docs.map((doc)=> {
+              return { id: doc.id, ...doc.data() }
+          }
+          ));
+          
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+    }, [])
 
 
 
@@ -40,8 +47,15 @@ const promesaProd = new Promise((resolve, reject) => {
 
     return(
 <>
-{arrayDeProductos.map(item=><Producto item={item}/>)
-}
+
+
+{JSON.stringify(items)}
+
+
+{/* {arrayDeProductos.map(item=><><p>PRODUCTO</p>
+        <p>{item.nombre} </p>
+        <Link to={"/producto"+item.id}>ir al item {item.id}</Link></>)
+} */}
 </>
     )
 } 
