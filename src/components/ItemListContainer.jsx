@@ -15,7 +15,7 @@ export default function ItemListContainer(){
   
       const db = getFirestore();
   
-      const itemCollection = db.collection("items")
+      const itemCollection = db.collection("tema")
       //.where('category', '==', 'adidas');
   
       itemCollection.get()
@@ -52,10 +52,10 @@ export default function ItemListContainer(){
 {JSON.stringify(items)}
 
 
-{/* {arrayDeProductos.map(item=><><p>PRODUCTO</p>
+{items.map(item=><><p>PRODUCTO</p>
         <p>{item.nombre} </p>
         <Link to={"/producto"+item.id}>ir al item {item.id}</Link></>)
-} */}
+}
 </>
     )
 } 
