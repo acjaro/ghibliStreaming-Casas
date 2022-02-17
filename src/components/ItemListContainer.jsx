@@ -10,7 +10,7 @@ export default function ItemListContainer(){
     
 
 
-    const [items, setItems] = useState({});
+    const [items, setItems] = useState([]);
     useEffect(() => {
   
       const db = getFirestore();
@@ -49,7 +49,7 @@ export default function ItemListContainer(){
 <>
 
 
-{JSON.stringify(items)}
+{/* {JSON.stringify(items)} */}
 
 
 {items.map(item=><><p>PRODUCTO</p>
